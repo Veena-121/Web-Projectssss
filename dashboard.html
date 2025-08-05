@@ -346,9 +346,9 @@
     </div>
     
     <div class="card">
-      <h3>💰 Energy Saved This Month</h3>
-      <div class="energy-value" id="energySaved">300 kWh</div>
-      <p style="color: #7f8c8d; margin: 0;">Cost savings from solar</p>
+      <h3>⚡ Energy Borrowed</h3>
+      <div class="energy-value" id="energyBorrowed">300 kWh</div>
+      <p style="color: #7f8c8d; margin: 0;">Used this month</p>
     </div>
     
     <!-- Event Booking Section -->
@@ -599,9 +599,9 @@
         type: formData.type
       });
       
-      // Update energy saved (now represents cost savings from using reserved energy)
-      const currentSaved = parseInt(document.getElementById('energySaved').textContent);
-      document.getElementById('energySaved').textContent = (currentSaved + formData.energy) + ' kWh';
+      // Update energy borrowed
+      const currentBorrowed = parseInt(document.getElementById('energyBorrowed').textContent);
+      document.getElementById('energyBorrowed').textContent = (currentBorrowed + formData.energy) + ' kWh';
       
       // Refresh calendar
       generateCalendar();
@@ -623,9 +623,9 @@
     
     // Simulate real-time energy updates
     setInterval(() => {
-      let saved = parseInt(document.getElementById('energySaved').textContent);
-      saved += Math.floor(Math.random() * 3) + 1;
-      document.getElementById('energySaved').textContent = saved + ' kWh';
+      let borrowed = parseInt(document.getElementById('energyBorrowed').textContent);
+      borrowed += Math.floor(Math.random() * 5) + 1;
+      document.getElementById('energyBorrowed').textContent = borrowed + ' kWh';
       
       // Occasionally add random usage events
       if (Math.random() < 0.3) {
