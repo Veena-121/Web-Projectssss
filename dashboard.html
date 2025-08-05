@@ -65,28 +65,6 @@
       margin: 10px 0;
     }
     
-    .contribution-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #ecf0f1;
-    }
-    
-    .contribution-item:last-child {
-      border-bottom: none;
-    }
-    
-    .contributor-name {
-      font-weight: 600;
-      color: #2c3e50;
-    }
-    
-    .contribution-amount {
-      color: #27ae60;
-      font-weight: bold;
-    }
-    
     /* Event Booking Styles */
     .booking-section {
       grid-column: 1 / -1;
@@ -368,27 +346,9 @@
     </div>
     
     <div class="card">
-      <h3>⚡ Energy Borrowed</h3>
-      <div class="energy-value" id="energyBorrowed">300 kWh</div>
-      <p style="color: #7f8c8d; margin: 0;">Used this month</p>
-    </div>
-    
-    <div class="card">
-      <h3>💸 Contribution Levels</h3>
-      <div id="contributionList">
-        <div class="contribution-item">
-          <span class="contributor-name">Asha</span>
-          <span class="contribution-amount">250 kWh</span>
-        </div>
-        <div class="contribution-item">
-          <span class="contributor-name">Ravi</span>
-          <span class="contribution-amount">180 kWh</span>
-        </div>
-        <div class="contribution-item">
-          <span class="contributor-name">Meena</span>
-          <span class="contribution-amount">320 kWh</span>
-        </div>
-      </div>
+      <h3>💰 Energy Saved This Month</h3>
+      <div class="energy-value" id="energySaved">300 kWh</div>
+      <p style="color: #7f8c8d; margin: 0;">Cost savings from solar</p>
     </div>
     
     <!-- Event Booking Section -->
@@ -639,9 +599,9 @@
         type: formData.type
       });
       
-      // Update energy borrowed
-      const currentBorrowed = parseInt(document.getElementById('energyBorrowed').textContent);
-      document.getElementById('energyBorrowed').textContent = (currentBorrowed + formData.energy) + ' kWh';
+      // Update energy saved (now represents cost savings from using reserved energy)
+      const currentSaved = parseInt(document.getElementById('energySaved').textContent);
+      document.getElementById('energySaved').textContent = (currentSaved + formData.energy) + ' kWh';
       
       // Refresh calendar
       generateCalendar();
@@ -663,9 +623,9 @@
     
     // Simulate real-time energy updates
     setInterval(() => {
-      let borrowed = parseInt(document.getElementById('energyBorrowed').textContent);
-      borrowed += Math.floor(Math.random() * 5) + 1;
-      document.getElementById('energyBorrowed').textContent = borrowed + ' kWh';
+      let saved = parseInt(document.getElementById('energySaved').textContent);
+      saved += Math.floor(Math.random() * 3) + 1;
+      document.getElementById('energySaved').textContent = saved + ' kWh';
       
       // Occasionally add random usage events
       if (Math.random() < 0.3) {
