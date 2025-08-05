@@ -275,75 +275,184 @@ body {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
-.hero-image {
-    width: 90%;
-    height: 90%;
+/* Solar Objects Container */
+.solar-objects {
+    width: 100%;
+    height: 100%;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     z-index: 2;
 }
 
-.hero-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Floating Elements */
-.floating-elements {
+/* Solar Object Base Styles */
+.solar-object {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.floating-element {
-    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    opacity: 0.8;
-    animation: float 6s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.element-1 {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #FFD700, #FFA500);
-    top: 10%;
-    left: 15%;
-    animation-delay: 0s;
+.solar-object:hover {
+    transform: scale(1.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
-.element-2 {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, #98FB98, #32CD32);
-    top: 20%;
-    right: 20%;
-    animation-delay: 2s;
+.solar-object i {
+    font-size: 24px;
+    transition: all 0.3s ease;
 }
 
-.element-3 {
+/* Individual Solar Objects */
+.sun-object {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #87CEEB, #4682B4);
-    bottom: 30%;
-    left: 10%;
-    animation-delay: 4s;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: sunFloat 4s ease-in-out infinite, sunGlow 2s ease-in-out infinite alternate;
 }
 
-.element-4 {
+.sun-object i {
+    color: white;
+    font-size: 36px;
+    animation: sunRotate 8s linear infinite;
+}
+
+.panel-object-1 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2F4F4F, #4682B4);
+    top: 25%;
+    left: 20%;
+    animation: panelFloat 5s ease-in-out infinite 0.5s;
+}
+
+.panel-object-1 i {
+    color: #87CEEB;
+    font-size: 28px;
+}
+
+.panel-object-2 {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #2F4F4F, #4682B4);
+    top: 60%;
+    right: 25%;
+    animation: panelFloat 4.5s ease-in-out infinite 1s;
+}
+
+.panel-object-2 i {
+    color: #87CEEB;
+    font-size: 26px;
+}
+
+.leaf-object {
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #FF6347, #FF4500);
-    bottom: 15%;
+    background: linear-gradient(135deg, #98FB98, #32CD32);
+    top: 40%;
+    left: 15%;
+    animation: leafSway 3s ease-in-out infinite 0.2s;
+}
+
+.leaf-object i {
+    color: #228B22;
+    font-size: 24px;
+}
+
+.battery-object {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #32CD32, #228B22);
+    bottom: 25%;
+    left: 30%;
+    animation: batteryPulse 3.5s ease-in-out infinite 1.5s;
+}
+
+.battery-object i {
+    color: white;
+    font-size: 26px;
+}
+
+.bolt-object {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #FFD700, #FF8C00);
+    top: 35%;
     right: 15%;
-    animation-delay: 1s;
+    animation: boltZap 2.5s ease-in-out infinite 0.8s;
+}
+
+.bolt-object i {
+    color: white;
+    font-size: 22px;
+}
+
+.recycle-object {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #32CD32, #90EE90);
+    bottom: 20%;
+    right: 20%;
+    animation: recycleRotate 6s linear infinite;
+}
+
+.recycle-object i {
+    color: #228B22;
+    font-size: 24px;
+}
+
+.house-object {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #87CEEB, #4682B4);
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: houseFloat 4.5s ease-in-out infinite 2s;
+}
+
+.house-object i {
+    color: white;
+    font-size: 26px;
+}
+
+.earth-object {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4682B4, #87CEEB);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: earthSpin 10s linear infinite, earthFloat 5s ease-in-out infinite;
+}
+
+.earth-object i {
+    color: #32CD32;
+    font-size: 28px;
+}
+
+.car-object {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #90EE90, #32CD32);
+    bottom: 30%;
+    right: 35%;
+    animation: carMove 8s ease-in-out infinite;
+}
+
+.car-object i {
+    color: white;
+    font-size: 24px;
 }
 
 /* Expand Button */
@@ -374,13 +483,140 @@ body {
     font-size: 18px;
 }
 
-/* Animations */
-@keyframes float {
+/* Solar Object Animations */
+@keyframes sunFloat {
     0%, 100% {
-        transform: translateY(0px);
+        transform: translateX(-50%) translateY(0px);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateX(-50%) translateY(-15px);
+    }
+}
+
+@keyframes sunGlow {
+    0% {
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    }
+    100% {
+        box-shadow: 0 8px 40px rgba(255, 215, 0, 0.6);
+    }
+}
+
+@keyframes sunRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes panelFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+    66% {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+}
+
+@keyframes leafSway {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(5deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(-3deg);
+    }
+}
+
+@keyframes batteryPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(50, 205, 50, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 8px 40px rgba(50, 205, 50, 0.6);
+    }
+}
+
+@keyframes boltZap {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: translateY(-12px) scale(1.2);
+        opacity: 0.8;
+    }
+    40% {
+        transform: translateY(-6px) scale(0.9);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(-10px) scale(1.1);
+        opacity: 0.9;
+    }
+    80% {
+        transform: translateY(-3px) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes recycleRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes houseFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-12px);
+    }
+}
+
+@keyframes earthSpin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes earthFloat {
+    0%, 100% {
+        transform: translate(-50%, -50%) translateY(0px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateY(-8px);
+    }
+}
+
+@keyframes carMove {
+    0%, 100% {
+        transform: translateX(0px) translateY(0px);
+    }
+    25% {
+        transform: translateX(-15px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(-8px) translateY(-8px);
+    }
+    75% {
+        transform: translateX(-20px) translateY(-3px);
     }
 }
 
@@ -451,14 +687,28 @@ body {
         height: 250px;
     }
     
-    .floating-element {
-        opacity: 0.6;
+    .solar-object {
+        opacity: 0.9;
     }
     
-    .element-1 { width: 40px; height: 40px; }
-    .element-2 { width: 30px; height: 30px; }
-    .element-3 { width: 50px; height: 50px; }
-    .element-4 { width: 35px; height: 35px; }
+    .sun-object { width: 60px; height: 60px; }
+    .panel-object-1 { width: 45px; height: 45px; }
+    .panel-object-2 { width: 40px; height: 40px; }
+    .leaf-object { width: 38px; height: 38px; }
+    .battery-object { width: 42px; height: 42px; }
+    .bolt-object { width: 35px; height: 35px; }
+    .recycle-object { width: 38px; height: 38px; }
+    .house-object { width: 42px; height: 42px; }
+    .earth-object { width: 45px; height: 45px; }
+    .car-object { width: 38px; height: 38px; }
+    
+    .solar-object i {
+        font-size: 18px;
+    }
+    
+    .sun-object i {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 480px) {
